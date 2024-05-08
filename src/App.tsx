@@ -1,7 +1,8 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 
 import { Pagination, Table } from "rsuite";
+import { GET_COUNTRIES } from "./utility/requests";
 
 interface CountryDefinition {
   capital: string;
@@ -14,21 +15,6 @@ interface CountryDefinition {
   name: string;
   nameWithEmoji?: string;
 }
-
-const GET_COUNTRIES = gql`
-  query GetCountries {
-    countries {
-      continent {
-        name
-      }
-      name
-      code
-      capital
-      currency
-      emoji
-    }
-  }
-`;
 
 function App() {
   const { loading, error, data } = useQuery(GET_COUNTRIES);
