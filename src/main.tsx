@@ -6,12 +6,7 @@ import "./index.css";
 import "rsuite/dist/rsuite.min.css";
 import { CustomProvider } from "rsuite";
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
   uri: "https://countries.trevorblades.com/graphql",
