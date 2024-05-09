@@ -10,6 +10,7 @@ import {
   Input,
   SelectPicker,
 } from "rsuite";
+
 import { GET_CONTINENTS, GET_COUNTRIES } from "./utility/requests";
 import { useFormik } from "formik";
 import { ValueType } from "rsuite/esm/Radio";
@@ -77,14 +78,12 @@ function App() {
         }
       );
       setCountries(countriesWithEmojiNames);
-      console.log(countriesWithEmojiNames);
       setFilteredCountries(countriesWithEmojiNames);
     }
   }, [countriesQuery.loading, countriesQuery.error, countriesQuery.data]);
 
   useEffect(() => {
     if (continentsQuery.data) {
-      console.log(continentsQuery.data.continents);
       setContinents(continentsQuery.data.continents);
     }
   }, [continentsQuery.data]);
@@ -175,7 +174,6 @@ function App() {
                 onChange={(e) => {
                   setActivePage(1);
                   formik.setFieldValue("codeSelected", e);
-                  console.log(formik.values.codeSelected);
                 }}
                 disabled={formik.values.searchTypeSelected !== "search-code"}
               />
